@@ -1,0 +1,10 @@
+{
+  "cSpell.words": [
+    "tailwindcss",
+    "trivago"
+  ],
+  "javascript.format.insertSpaceAfterSemicolonInForStatements": true,
+  "tailwindCSS.emmetCompletions": true,
+  "typescript.tsdk": "node_modules\\typescript\\lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true
+}
