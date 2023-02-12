@@ -28,8 +28,8 @@ import { JwtStrategy } from './strategies/jwt.strategy';
 export class AuthModule {}
 
 /*
-  ** name
-  nest g module name
-  nest g s name
-  nest g controller name
+  **name
+  nest g module user
+  nest g s user
+  nest g controller user
 */
