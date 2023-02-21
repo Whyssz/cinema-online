@@ -4,7 +4,7 @@ import { MovieController } from './movie.controller';
 import { MovieModel } from './movie.model';
 import { MovieService } from './movie.service';
 
-@Module({ 
+@Module({
 	imports: [
 		TypegooseModule.forFeature([
 			{
@@ -14,5 +14,6 @@ import { MovieService } from './movie.service';
 	],
 	controllers: [MovieController],
 	providers: [MovieService],
+	exports: [MovieService],
 })
 export class MovieModule {}
