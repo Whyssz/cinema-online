@@ -3,23 +3,21 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { FC } from 'react';
 
+import styles from './Menu.module.scss';
+import { IMenuItem } from './menu.interface';
 import { MaterialIcon } from '@/components/ui/materialIcon/MaterialIcon';
-
-import { IMenuItem } from '../interface.menu';
-import styles from '../menu/menu.module.scss';
 
 export const MenuItem: FC<{ item: IMenuItem }> = ({ item }) => {
 	const { asPath } = useRouter();
-	const clas = cn({
+	const classes = cn({
 		[styles.active]: asPath === item.link,
 	});
+
 	return (
-		<li className={clas}>
-			<Link legacyBehavior href={item.link}>
-				<a>
-					<MaterialIcon name={item.icon} />
-					<span>{item.title}</span>
-				</a>
+		<li className={classes}>
+			<Link href={item.link}>
+				<MaterialIcon name={item.icon} />
+				<span>{item.title}</span>
 			</Link>
 		</li>
 	);
