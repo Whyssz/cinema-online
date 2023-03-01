@@ -8,11 +8,11 @@ import {
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { Auth } from 'src/auth/decorators/auth.decorator';
-import { FileService } from './file.service';
+import { FilesService } from './file.service';
 
 @Controller('files')
 export class FileController {
-	constructor(private readonly fileService: FileService) {}
+	constructor(private readonly fileService: FilesService) {}
 
 	@Post()
 	@HttpCode(200)

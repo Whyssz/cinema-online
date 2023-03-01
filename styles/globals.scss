@@ -12,6 +12,7 @@
 
 html,
 body {
+	scrollbar-gutter: stable;
 	font-family: 'Outfit', sans-serif;
 	@apply bg-gray-800 overflow-hidden max-w-[100vw];
 }

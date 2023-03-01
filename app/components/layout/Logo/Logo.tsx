@@ -8,7 +8,7 @@ export const Logo: FC = () => {
 	return (
 		<Link href="/">
 			<Image
-				className="px-layout mx-auto mb-10 block"
+				className="px-layout mx-auto mb-[40px] block"
 				src={logoImage}
 				width={247}
 				height={34}
