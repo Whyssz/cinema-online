@@ -3,7 +3,7 @@ import { ModelType } from '@typegoose/typegoose/lib/types';
 import { InjectModel } from 'nestjs-typegoose';
 import { MovieService } from 'src/movie/movie.service';
 import { CreateGenreDto } from './dto/create-interface.dto';
-import { Colletions } from './genre.interface';
+import { Collections } from './genre.interface';
 import { GenreModel } from './genre.model';
 
 @Injectable()
@@ -60,7 +60,7 @@ export class GenreService {
 			icon: '',
 			description: '',
 		};
-		const genre = await await this.GenreModel.create(defaultValue);
+		const genre = await this.GenreModel.create(defaultValue);
 
 		return genre._id;
 	}
@@ -70,7 +70,7 @@ export class GenreService {
 		const collections = await Promise.all(
 			genres.map(async (genre) => {
 				const moviesByGenre = await this.movieService.byGenres([genre._id]);
-				const result: Colletions = {
+				const result: Collections = {
 					_id: String(genre._id),
 					image: moviesByGenre[0].bigPoster,
 					slug: genre.slug,

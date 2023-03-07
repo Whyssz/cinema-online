@@ -32,7 +32,7 @@ export class RatingController {
 	@Post('set-rating')
 	@HttpCode(200)
 	@Auth()
-	async setRatign(@User('_id') _id: Types.ObjectId, @Body() dto: SetRatingDto) {
+	async setRating(@User('_id') _id: Types.ObjectId, @Body() dto: SetRatingDto) {
 		return this.ratingService.setRating(_id, dto);
 	}
 }

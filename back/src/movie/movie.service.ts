@@ -57,7 +57,7 @@ export class MovieService {
 	}
 
 	async getMostPopular() {
-		return await this.MovieModel.find({ countOpened: { gt: 0 } })
+		return await this.MovieModel.find({ countOpened: { $gt: 0 } })
 			.sort({ countOpened: -1 })
 			.populate('genres')
 			.exec();
@@ -65,7 +65,7 @@ export class MovieService {
 
 	async updateCountOpened(slug: UpdateCountOpened) {
 		const updateDoc = await this.MovieModel.findOneAndUpdate(
-			{ slug },
+			slug,
 			{ $inc: { countOpened: 1 } },
 			{ new: true }
 		).exec();

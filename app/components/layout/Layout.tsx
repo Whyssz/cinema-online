@@ -1,10 +1,10 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 
 import styles from './Layout.module.scss';
 import { Navigation } from './Navigation/Navigation';
 import { SideBar } from './Sidebar/Sidebar';
 
-const Layout: FC<React.PropsWithChildren> = ({ children }) => {
+export const Layout: FC<React.PropsWithChildren> = ({ children }) => {
 	return (
 		<div className={styles.layout}>
 			<Navigation />
@@ -13,4 +13,3 @@ const Layout: FC<React.PropsWithChildren> = ({ children }) => {
 		</div>
 	);
 };
-export default Layout;

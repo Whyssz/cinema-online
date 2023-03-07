@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+@import 'react-redux-toastr/src/styles/index';
 
 * {
 	box-sizing: border-box;
@@ -12,7 +13,6 @@
 
 html,
 body {
-	scrollbar-gutter: stable;
 	font-family: 'Outfit', sans-serif;
 	@apply bg-gray-800 overflow-hidden max-w-[100vw];
 }

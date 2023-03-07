@@ -1,6 +1,6 @@
-import { IsNotEmpty, IsString } from 'class-validator';
+import { IsNotEmpty } from 'class-validator';
 
 export class UpdateCountOpened {
-	@IsString()
+	@IsNotEmpty({ message: 'Empty slug' })
 	slug: string;
 }
