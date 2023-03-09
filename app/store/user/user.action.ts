@@ -4,7 +4,6 @@ import { toastr } from 'react-redux-toastr';
 import { toastrError } from 'utils/toastr/toaster-error';
 
 import { IAuthResponse, IEmailPassword } from './user.interface';
-import { saveToStorage } from '@/services/auth/auth.helper';
 import { AuthService } from '@/services/auth/auth.service';
 
 export const register = createAsyncThunk<IAuthResponse, IEmailPassword>(
@@ -13,8 +12,6 @@ export const register = createAsyncThunk<IAuthResponse, IEmailPassword>(
 		try {
 			const response = await AuthService.register(email, password);
 			toastr.success('Registration', 'Successfully completed!');
-
-			saveToStorage(response.data);
 			return response.data;
 		} catch (error) {
 			toastrError(error);
@@ -38,11 +35,11 @@ export const login = createAsyncThunk<IAuthResponse, IEmailPassword>(
 	}
 );
 
-export const logout = createAsyncThunk('auth/logout', async (_, thunkAPi) => {
+export const logout = createAsyncThunk('auth/logout', async () => {
 	AuthService.logout();
 });
 
-export const checkAuth = createAsyncThunk<IAuthResponse, IEmailPassword>(
+export const checkAuth = createAsyncThunk<IAuthResponse>(
 	'auth/check-auth',
 	async (_, thunkAPi) => {
 		try {
@@ -56,7 +53,6 @@ export const checkAuth = createAsyncThunk<IAuthResponse, IEmailPassword>(
 				);
 				thunkAPi.dispatch(logout());
 			}
-			toastrError(error);
 			return thunkAPi.rejectWithValue(error);
 		}
 	}

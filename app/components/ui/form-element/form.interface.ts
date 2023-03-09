@@ -1,13 +1,13 @@
 import { ButtonHTMLAttributes, InputHTMLAttributes } from 'react';
-import { FieldValues } from 'react-hook-form';
-
+import { FieldError } from 'react-hook-form';
 
 export interface IButton extends ButtonHTMLAttributes<HTMLButtonElement> {}
 
-export interface IFieldProps {
+export type IFieldProps = {
 	placeholder: string;
-	error?: FieldValues | undefined;
-}
+	error?: FieldError | undefined;
+	// error?: FieldValues | undefined; // use this if you specify a certain type of FormState
+};
 
 type TypeInputPropsField = InputHTMLAttributes<HTMLInputElement> & IFieldProps;
 

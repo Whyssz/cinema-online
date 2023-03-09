@@ -4,12 +4,11 @@ import { FormState, UseFormRegister } from 'react-hook-form';
 import { validEmail } from '@/shared/regexp/regexp';
 import { Field } from '@/ui/form-element/input/Field';
 
-interface IAuthFields {
-	// they'll be reused, the types themselves  aren't important to us
+type IAuthFields = {
 	register: UseFormRegister<any>;
 	formState: FormState<any>;
 	isPasswordRequired?: boolean;
-}
+};
 
 export const AuthFields: FC<IAuthFields> = ({
 	register,
@@ -27,6 +26,7 @@ export const AuthFields: FC<IAuthFields> = ({
 					},
 				})}
 				placeholder="E-mail"
+				// @ts-ignore <any> as another type, but it is necessary for universality
 				error={errors.email}
 			/>
 			<Field
@@ -44,6 +44,7 @@ export const AuthFields: FC<IAuthFields> = ({
 				)}
 				type="password"
 				placeholder="Password"
+				// @ts-ignore <any> as another type, but it is necessary for universality
 				error={errors.password}
 			/>
 		</>

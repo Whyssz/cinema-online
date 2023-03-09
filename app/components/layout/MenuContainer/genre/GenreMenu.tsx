@@ -1,9 +1,11 @@
 import { Tab } from '../Tab';
 
+
+
 import { usePopularGenres } from './usePopularGenres';
 import { SkeletonLoading } from '@/ui/heading/SkeletonLoading';
 
-export const GenreMenu = () => {
+const GenreMenu = () => {
 	const { isLoading, data } = usePopularGenres();
 
 	return isLoading ? (
@@ -14,3 +16,5 @@ export const GenreMenu = () => {
 		<Tab menu={{ title: 'Popular genres', items: data || [] }} />
 	);
 };
+
+export default GenreMenu;

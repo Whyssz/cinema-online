@@ -6,52 +6,46 @@ import styles from './Auth.module.scss';
 import { AuthFields } from './AuthFields';
 import { IAuthInput } from './auth.interface';
 import { useAuthRedirect } from './useAuthRedirect';
+import { Button } from '@/components/ui/form-element/button/Button';
+import { Heading } from '@/components/ui/heading/Heading';
 import { useActions } from '@/hooks/useActions';
-import { useAuth } from '@/hooks/useIsAuth';
-import { Button } from '@/ui/form-element/button/Button';
-import { Heading } from '@/ui/heading/Heading';
+import { useAuth } from '@/hooks/useAuth';
 
 const Auth: FC = () => {
 	useAuthRedirect();
 
 	const { isLoading } = useAuth();
-	const [type, setType] = useState<'loading' | 'register'>('loading');
+
+	const [type, setType] = useState<'login' | 'register'>('login');
 
 	const {
 		register: registerInput,
 		handleSubmit,
 		formState,
 		reset,
-	} = useForm<IAuthInput>({ mode: 'onChange' });
+	} = useForm<IAuthInput>({
+		mode: 'onChange',
+	});
 
 	const { login, register } = useActions();
 
 	const onSubmit: SubmitHandler<IAuthInput> = (data) => {
-		if (type === 'loading') {
-			login(data);
-		} else {
-			register(data);
-		}
+		type === 'login' ? login(data) : register(data);
 
 		reset();
 	};
 
 	return (
-		<>
-			<Meta title="Auth"></Meta>
+		<Meta title="Auth">
 			<section className={styles.wrapper}>
 				<form onSubmit={handleSubmit(onSubmit)}>
 					<Heading title="Auth" className="mb-6" />
-					<AuthFields
-						formState={formState}
-						register={registerInput}
-						isPasswordRequired
-					/>
+					<AuthFields register={registerInput} formState={formState} />
 
 					<div className={styles.buttons}>
 						<Button
 							type="submit"
-							onClick={() => setType('loading')}
+							onClick={() => setType('login')}
 							disabled={isLoading}
 						>
 							Login
@@ -66,7 +60,7 @@ const Auth: FC = () => {
 					</div>
 				</form>
 			</section>
-		</>
+		</Meta>
 	);
 };
 

@@ -4,9 +4,9 @@ import { MenuItem } from '../MenuItem';
 
 import { LogoutButton } from './LogoutButton';
 import { getAdminHomeUrl } from '@/config/url.config';
-import { useAuth } from '@/hooks/useIsAuth';
+import { useAuth } from '@/hooks/useAuth';
 
-export const AuthItem: FC = () => {
+const AuthItems: FC = () => {
 	const { user } = useAuth();
 
 	return (
@@ -38,3 +38,5 @@ export const AuthItem: FC = () => {
 		</>
 	);
 };
+
+export default AuthItems;

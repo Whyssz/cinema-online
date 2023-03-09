@@ -14,6 +14,7 @@ export const Logo: FC = () => {
 				height={34}
 				draggable={false}
 				alt="Company Logo"
+				priority
 			/>
 		</Link>
 	);

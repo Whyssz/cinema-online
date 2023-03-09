@@ -1,8 +1,12 @@
+import dynamic from 'next/dynamic';
 import { FC } from 'react';
 
 import { Tab } from './Tab';
-import { GenreMenu } from './genre/GenreMenu';
 import { firstMenu, userMenu } from './menu.data';
+
+const GenreMenu = dynamic(() => import('./genre/GenreMenu'), {
+	ssr: false,
+});
 
 export const MenuContainer: FC = () => {
 	return (
