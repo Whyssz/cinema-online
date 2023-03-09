@@ -5,11 +5,11 @@ import styles from './Menu.module.scss';
 import { MenuItem } from './MenuItem';
 import { IMenu } from './menu.interface';
 
-const AuthItems = dynamic(() => import('./auth/AuthItems'), {
+const DynamicAuthItems = dynamic(() => import('./auth/AuthItems'), {
 	ssr: false,
 });
 
-export const Tab: FC<{ menu: IMenu }> = ({ menu: { title, items } }) => {
+const Tab: FC<{ menu: IMenu }> = ({ menu: { title, items } }) => {
 	return (
 		<div className={styles.menu}>
 			<div className={styles.heading}>{title}</div>
@@ -17,8 +17,9 @@ export const Tab: FC<{ menu: IMenu }> = ({ menu: { title, items } }) => {
 				{items.map((item) => (
 					<MenuItem item={item} key={item.link} />
 				))}
-				{title === 'General' ? <AuthItems /> : null}
+				{title === 'General' ? <DynamicAuthItems /> : null}
 			</ul>
 		</div>
 	);
 };
+export default Tab;

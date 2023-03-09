@@ -1,6 +1,4 @@
-import { Tab } from '../Tab';
-
-
+import Tab from '../Tab';
 
 import { usePopularGenres } from './usePopularGenres';
 import { SkeletonLoading } from '@/ui/heading/SkeletonLoading';

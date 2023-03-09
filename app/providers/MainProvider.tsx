@@ -2,6 +2,8 @@ import { FC } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { Provider } from 'react-redux';
 
+import { useAuthContext } from './AuthContext';
+import { AuthProvider } from './AuthProvider/AuthProvider';
 import { HeadProvider } from './HeadProvider/HeadProvider';
 import { ReduxToastr } from './ReduxToastr';
 import { Layout } from '@/components/layout/Layout';
@@ -15,12 +17,16 @@ const queryClient = new QueryClient();
 // },
 
 export const MainProvider: FC<React.PropsWithChildren> = ({ children }) => {
+	const { Component } = useAuthContext();
+
 	return (
 		<HeadProvider>
 			<Provider store={store}>
 				<QueryClientProvider client={queryClient}>
 					<ReduxToastr />
-					<Layout>{children}</Layout>
+					<AuthProvider Component={Component}>
+						<Layout>{children}</Layout>
+					</AuthProvider>
 				</QueryClientProvider>
 			</Provider>
 		</HeadProvider>

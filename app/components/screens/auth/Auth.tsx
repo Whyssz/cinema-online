@@ -64,4 +64,5 @@ const Auth: FC = () => {
 	);
 };
 
+
 export default Auth;

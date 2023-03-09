@@ -1,19 +1,22 @@
 import dynamic from 'next/dynamic';
 import { FC } from 'react';
 
-import { Tab } from './Tab';
 import { firstMenu, userMenu } from './menu.data';
 
-const GenreMenu = dynamic(() => import('./genre/GenreMenu'), {
+const DynamicGenreMenu = dynamic(() => import('./genre/GenreMenu'), {
+	ssr: false,
+});
+
+const DynamicTab = dynamic(() => import('./Tab'), {
 	ssr: false,
 });
 
 export const MenuContainer: FC = () => {
 	return (
 		<div>
-			<Tab menu={firstMenu} />
-			<GenreMenu />
-			<Tab menu={userMenu} />
+			<DynamicTab menu={firstMenu} />
+			<DynamicGenreMenu />
+			<DynamicTab menu={userMenu} />
 		</div>
 	);
 };

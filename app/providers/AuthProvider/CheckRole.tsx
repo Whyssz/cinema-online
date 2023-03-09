@@ -8,11 +8,12 @@ type RoleProps = TypeComponentAuthFields & {
 	children?: ReactNode | undefined;
 };
 
-export const CheckRole: FC<RoleProps> = ({
+const CheckRole: FC<RoleProps> = ({
 	Component: { isOnlyAdmin, isOnlyUser },
 	children,
 }) => {
 	const { user } = useAuth();
+
 	const router = useRouter();
 
 	const Children = () => <>{children}</>;
@@ -28,10 +29,11 @@ export const CheckRole: FC<RoleProps> = ({
 
 	const isUser = user && !user.isAdmin;
 
-	if (isUser && isOnlyUser) {
-		return <Children />;
-	} else {
+	if (isUser && isOnlyUser) return <Children />;
+	else {
 		router.pathname !== '/auth' && router.replace('/auth');
 		return null;
 	}
 };
+
+export default CheckRole;

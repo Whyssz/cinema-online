@@ -1,4 +1,5 @@
 import Cookies from 'js-cookie';
+import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { FC, PropsWithChildren, useEffect } from 'react';
 
@@ -6,10 +7,14 @@ import { useActions } from '@/hooks/useActions';
 import { useAuth } from '@/hooks/useAuth';
 import { TypeComponentAuthFields } from '@/shared/types/auth.types';
 
-export const AuthProvider: FC<PropsWithChildren<TypeComponentAuthFields>> = (
-	Component: {},
-	{ children }
-) => {
+const DynamicCheckRole = dynamic(() => import('./CheckRole'), {
+	ssr: false,
+});
+
+export const AuthProvider: FC<PropsWithChildren<TypeComponentAuthFields>> = ({
+	Component: { isOnlyAdmin, isOnlyUser },
+	children,
+}) => {
 	const { user } = useAuth();
 	const { checkAuth, logout } = useActions();
 	const { pathname } = useRouter();
@@ -21,10 +26,14 @@ export const AuthProvider: FC<PropsWithChildren<TypeComponentAuthFields>> = (
 
 	useEffect(() => {
 		const refreshToken = Cookies.get('refreshToken');
-		if (!refreshToken) logout();
-	}, [pathname]);
+		if (!refreshToken && user) logout();
+	}, [pathname]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  
-
-	return <div>AuthProvider</div>;
+	return !isOnlyAdmin && !isOnlyUser ? (
+		<>{children}</>
+	) : (
+		<DynamicCheckRole Component={{ isOnlyAdmin, isOnlyUser }}>
+			{children}
+		</DynamicCheckRole>
+	);
 };
