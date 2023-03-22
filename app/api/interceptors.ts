@@ -11,7 +11,8 @@ export const axiosClassic = axios.create({
 	headers: getContentType(),
 });
 
-export const instance = axios.create({
+// For users
+const instance = axios.create({
 	baseURL: API_URL,
 	headers: getContentType(),
 });
@@ -47,6 +48,8 @@ instance.interceptors.response.use(
 			}
 		}
 
-		return error;
+		throw error;
 	}
 );
+
+export default instance;

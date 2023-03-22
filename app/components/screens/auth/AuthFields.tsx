@@ -26,7 +26,6 @@ export const AuthFields: FC<IAuthFields> = ({
 					},
 				})}
 				placeholder="E-mail"
-				// @ts-ignore <any> as another type, but it is necessary for universality
 				error={errors.email}
 			/>
 			<Field
@@ -44,7 +43,6 @@ export const AuthFields: FC<IAuthFields> = ({
 				)}
 				type="password"
 				placeholder="Password"
-				// @ts-ignore <any> as another type, but it is necessary for universality
 				error={errors.password}
 			/>
 		</>

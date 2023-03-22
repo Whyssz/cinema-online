@@ -5,10 +5,11 @@ import { FC } from 'react';
 
 import styles from './Menu.module.scss';
 import { IMenuItem } from './menu.interface';
-import { MaterialIcon } from '@/components/ui/materialIcon/MaterialIcon';
+import { MaterialIcon } from '@/ui/materialIcon/MaterialIcon';
 
 export const MenuItem: FC<{ item: IMenuItem }> = ({ item }) => {
 	const { asPath } = useRouter();
+
 	const classes = cn({
 		[styles.active]: asPath === item.link,
 	});

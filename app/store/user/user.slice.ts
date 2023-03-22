@@ -1,8 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { getStoreLocal } from 'utils/local-store/local-storage';
 
-
-
 import { checkAuth, login, logout, register } from './user.action';
 import { IInitialState } from './user.interface';
 

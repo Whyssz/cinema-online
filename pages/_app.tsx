@@ -1,5 +1,5 @@
 import type { AppProps } from 'next/app';
-import { AuthProvider } from 'providers/AuthContext';
+import { ContextProvider } from 'providers/AuthContext';
 import { MainProvider } from 'providers/MainProvider';
 
 import '@/assets/styles/globals.scss';
@@ -9,10 +9,10 @@ type TypeAppProps = AppProps & TypeComponentAuthFields;
 
 export default function App({ Component, pageProps }: TypeAppProps) {
 	return (
-		<AuthProvider Component={Component}>
+		<ContextProvider Component={Component}>
 			<MainProvider>
 				<Component {...pageProps} />
 			</MainProvider>
-		</AuthProvider>
+		</ContextProvider>
 	);
 }

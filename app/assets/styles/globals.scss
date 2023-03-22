@@ -3,6 +3,8 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+@import './react-select.scss';
 @import 'react-redux-toastr/src/styles/index';
 
 * {
@@ -14,7 +16,16 @@
 html,
 body {
 	font-family: 'Outfit', sans-serif;
-	@apply bg-gray-800 overflow-hidden max-w-[100vw];
+	@apply bg-gray-800 max-w-[100vw];
+}
+
+body {
+	height: 100vh;
+}
+
+li,
+ol {
+	list-style: none;
 }
 
 a {
@@ -35,8 +46,32 @@ input:focus {
 	box-shadow: none !important;
 }
 
+.admin-form {
+	@apply w-1/2 mt-12;
+}
+
+// Slide animaiton
+
+.slide-animation-enter {
+	opacity: 0;
+	transform: scale(0.9);
+}
+.slide-animation-enter-active {
+	opacity: 1;
+	transform: translateX(0);
+	transition: opacity 0.3s, transform 0.3s;
+}
+.slide-animation-exit {
+	opacity: 1;
+}
+.slide-animation-exit-active {
+	opacity: 0;
+	transform: scale(0.9);
+	transition: opacity 0.3s, transform 0.3s;
+}
+/* 
 @media (prefers-color-scheme: dark) {
 	html {
 		color-scheme: dark;
 	}
-}
+} */

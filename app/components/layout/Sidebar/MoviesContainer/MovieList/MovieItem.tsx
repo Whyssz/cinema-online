@@ -1,13 +1,13 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { FC } from 'react';
-import { getGenresListEach } from 'utils/movie/getGenresListEach';
+import { getGenresListEach } from 'utils/movie/listProcessing';
 
 import styles from '../MovieContainer.module.scss';
 
-import { MaterialIcon } from '@/components/ui/materialIcon/MaterialIcon';
 import { getGenreUrl, getMovieUrl } from '@/config/url.config';
 import { IMovie } from '@/shared/types/movie.types';
+import { MaterialIcon } from '@/ui/materialIcon/MaterialIcon';
 
 export const MovieItem: FC<{ movie: IMovie }> = ({ movie }) => {
 	return (

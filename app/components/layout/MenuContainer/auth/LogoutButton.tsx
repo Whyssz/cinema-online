@@ -1,7 +1,7 @@
 import { FC, MouseEvent } from 'react';
 
-import { MaterialIcon } from '@/components/ui/materialIcon/MaterialIcon';
 import { useActions } from '@/hooks/useActions';
+import { MaterialIcon } from '@/ui/materialIcon/MaterialIcon';
 
 export const LogoutButton: FC = () => {
 	const { logout } = useActions();

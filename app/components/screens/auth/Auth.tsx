@@ -6,10 +6,10 @@ import styles from './Auth.module.scss';
 import { AuthFields } from './AuthFields';
 import { IAuthInput } from './auth.interface';
 import { useAuthRedirect } from './useAuthRedirect';
-import { Button } from '@/components/ui/form-element/button/Button';
-import { Heading } from '@/components/ui/heading/Heading';
 import { useActions } from '@/hooks/useActions';
 import { useAuth } from '@/hooks/useAuth';
+import { Button } from '@/ui/form-element/button/Button';
+import { Heading } from '@/ui/heading/Heading';
 
 const Auth: FC = () => {
 	useAuthRedirect();
@@ -63,6 +63,5 @@ const Auth: FC = () => {
 		</Meta>
 	);
 };
-
 
 export default Auth;

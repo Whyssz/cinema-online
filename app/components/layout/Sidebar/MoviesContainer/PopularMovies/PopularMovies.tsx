@@ -3,12 +3,13 @@ import { useQuery } from 'react-query';
 
 import { MovieList } from '../MovieList/MovieList';
 
-import { SkeletonLoading } from '@/components/ui/heading/SkeletonLoading';
 import { MovieService } from '@/services/movie.service';
+import { SkeletonLoading } from '@/ui/heading/SkeletonLoading';
+import { popularMovieSide } from '@/config/constantsQuery';
 
 export const PopularMovies: FC = () => {
 	const { isLoading, data: popularMovies } = useQuery(
-		'Popular movies in sidebar',
+		popularMovieSide,
 		() => MovieService.getMostPopularMovies()
 	);
 

@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Meta } from 'utils/meta/Meta';
 
-import { Heading } from '@/components/ui/heading/Heading';
+import { Heading } from '@/ui/heading/Heading';
 
 const Profile: FC = () => {
 	return (

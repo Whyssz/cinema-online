@@ -9,7 +9,7 @@ import { IAuthResponse } from '@/store/user/user.interface';
 export const AuthService = {
 	async register(email: string, password: string) {
 		const response = await axiosClassic.post<IAuthResponse>(
-			getAuthUrl('register'),
+			getAuthUrl('/register'),
 			{
 				email,
 				password,
@@ -25,7 +25,7 @@ export const AuthService = {
 
 	async login(email: string, password: string) {
 		const response = await axiosClassic.post<IAuthResponse>(
-			getAuthUrl('login'),
+			getAuthUrl('/login'),
 			{
 				email,
 				password,
@@ -47,7 +47,7 @@ export const AuthService = {
 	async getNewToken() {
 		const refreshToken = Cookies.get('refreshToken');
 		const response = await axiosClassic.post<IAuthResponse>(
-			getAuthUrl('login/access-token'),
+			getAuthUrl('/login/access-token'),
 			{ refreshToken },
 			{ headers: getContentType() }
 		);
