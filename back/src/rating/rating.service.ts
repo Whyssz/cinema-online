@@ -34,7 +34,7 @@ export class RatingService {
 
 	async setRating(user: Types.ObjectId, dto: SetRatingDto) {
 		const { movie, value } = dto;
-
+		
 		const newRating = await this.RatingModel.findOneAndUpdate(
 			{ movie, user },
 			{

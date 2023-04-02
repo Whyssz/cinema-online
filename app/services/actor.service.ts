@@ -1,8 +1,8 @@
 import axios, { axiosClassic } from 'api/interceptors';
 
 import { getActorsUrl } from './../config/api.config';
+import { IActorEditInput } from '@/screens/admin/actors/edit/actor-edit.interface';
 import { IActor } from '@/shared/types/movie.types';
-import { IActorEditInput } from '@/components/screens/admin/actors/edit/actor-edit.interface';
 
 export const ActorService = {
 	async getAll(searchTerm?: string) {
@@ -13,6 +13,10 @@ export const ActorService = {
 
 	async getById(_id: string) {
 		return axios.get<IActorEditInput>(getActorsUrl(`/${_id}`));
+	},
+
+	async getBySlug(name: string) {
+		return axiosClassic.get<IActor>(getActorsUrl(`/by-slug/${name}`));
 	},
 
 	async update(_id: string, data: IActorEditInput) {

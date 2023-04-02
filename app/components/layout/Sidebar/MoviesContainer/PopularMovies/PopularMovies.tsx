@@ -1,16 +1,15 @@
 import { FC } from 'react';
 import { useQuery } from 'react-query';
 
-import { MovieList } from '../MovieList/MovieList';
+import MovieList from '../MovieList/MovieList';
 
+import { popularMovieSide } from '@/config/constantsQuery';
 import { MovieService } from '@/services/movie.service';
 import { SkeletonLoading } from '@/ui/heading/SkeletonLoading';
-import { popularMovieSide } from '@/config/constantsQuery';
 
 export const PopularMovies: FC = () => {
-	const { isLoading, data: popularMovies } = useQuery(
-		popularMovieSide,
-		() => MovieService.getMostPopularMovies()
+	const { isLoading, data: popularMovies } = useQuery(popularMovieSide, () =>
+		MovieService.getMostPopularMovies()
 	);
 
 	return isLoading ? (

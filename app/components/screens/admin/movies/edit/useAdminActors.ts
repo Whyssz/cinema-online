@@ -1,9 +1,9 @@
 import { useQuery } from 'react-query';
 import { toastrError } from 'utils/toastr/toaster-error';
 
-import { IOption } from '@/components/ui/form-element/select/select-interface';
 import { listActors } from '@/config/constantsQuery';
 import { ActorService } from '@/services/actor.service';
+import { IOption } from '@/ui/form-element/select/select-interface';
 
 export const useAdminActors = () => {
 	const queryData = useQuery(listActors, () => ActorService.getAll(), {

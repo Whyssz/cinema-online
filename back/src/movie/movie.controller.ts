@@ -73,6 +73,7 @@ export class MovieController {
 		@Body() dto: UpdateMovieDto
 	) {
 		const updateMovie = await this.movieService.update(id, dto);
+
 		if (!updateMovie) throw new NotFoundException('Movie not found');
 
 		return updateMovie;

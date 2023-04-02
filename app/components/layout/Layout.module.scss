@@ -8,6 +8,12 @@ $bar-width: 20%;
 		@apply fixed top-0 bottom-0 overflow-y-scroll;
 		width: $bar-width;
 		max-width: 350px;
+		/* or 
+			-webkit-overflow-scrolling: touch; 
+			::-webkit-scrollbar {
+				display: none;
+			}
+		*/
 		-ms-overflw-style: none;
 		scrollbar-width: none;
 	}

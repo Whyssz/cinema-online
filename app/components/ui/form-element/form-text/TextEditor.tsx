@@ -33,7 +33,6 @@ const TextEditor: FC<ITextEditor> = ({
 	}, [value, isUpdated]);
 
 	const onEditorStateChange = (editorState: EditorState) => {
-		console.log(editorState);
 		setIsUpdated(true);
 		setEditorState(editorState);
 

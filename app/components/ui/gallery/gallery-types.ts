@@ -4,7 +4,7 @@ export interface IGalleryItem {
 	link: string;
 	content?: {
 		title: string;
-		subTitle: string;
+		subTitle?: string;
 	};
 }
 

@@ -6,7 +6,7 @@ import { IMovieList } from '../movie-list.interface';
 
 import { MovieItem } from './MovieItem';
 
-export const MovieList: FC<IMovieList> = ({ link, movies, title }) => {
+const MovieList: FC<IMovieList> = ({ link, movies, title }) => {
 	return (
 		<div className={styles.list}>
 			<div className={styles.heading}>{title}</div>
@@ -19,3 +19,4 @@ export const MovieList: FC<IMovieList> = ({ link, movies, title }) => {
 		</div>
 	);
 };
+export default MovieList;

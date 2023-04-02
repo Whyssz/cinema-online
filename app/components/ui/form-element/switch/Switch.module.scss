@@ -1,0 +1,31 @@
+.switch {
+	@apply flex justify-between items-baseline;
+
+	> label {
+		@apply relative inline-block w-[50px] h-[24px] mb-5;
+
+		> input {
+			@apply opacity-0 w-0 h-0;
+
+			&:checked + .slider {
+				@apply bg-primary;
+				&:before {
+					@apply translate-x-[25px];
+				}
+			}
+		}
+	}
+
+	.placeholder {
+		@apply text-2xl text-white opacity-80 block mb-4;
+	}
+
+	.slider {
+		@apply absolute cursor-pointer inset-0 transition-all rounded-[34px];
+		background-color: #ccc;
+		&:before {
+			content: '';
+			@apply absolute h-[16px] w-[16px] left-1 bottom-1 bg-white transition-all rounded-full;
+		}
+	}
+}

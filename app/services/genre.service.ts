@@ -1,14 +1,23 @@
 import axios, { axiosClassic } from 'api/interceptors';
 
-import { IGenreEditInput } from '@/components/screens/admin/genres/edit/genre-edit.interface';
 import { getGenresUrl } from '@/config/api.config';
+import { IGenreEditInput } from '@/screens/admin/genres/edit/genre-edit.interface';
 import { IGenre } from '@/shared/types/movie.types';
+import { ICollection } from '@/components/screens/collections/collection.interface';
 
 export const GenreService = {
 	async getAll(searchTerm?: string) {
-		return axiosClassic.get<IGenre[]>(getGenresUrl(``), {
+		return axiosClassic.get<IGenre[]>(getGenresUrl(''), {
 			params: searchTerm ? { searchTerm } : {},
 		});
+	},
+
+	async getBySlug(name: string) {
+		return axiosClassic.get<IGenre>(getGenresUrl(`/by-slug/${name}`));
+	},
+	
+	async getCollections() {
+		return axiosClassic.get<ICollection[]>(getGenresUrl('/collections'));
 	},
 
 	async getById(_id: string) {

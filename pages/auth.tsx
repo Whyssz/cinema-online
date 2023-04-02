@@ -1,7 +1,6 @@
 import { NextPage } from 'next';
-import { useRouter } from 'next/router';
 
-import Auth from '@/components/screens/auth/Auth';
+import Auth from '@/screens/auth/Auth';
 
 const AuthPage: NextPage = () => {
 	return <Auth />;

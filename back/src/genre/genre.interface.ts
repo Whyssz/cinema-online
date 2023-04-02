@@ -1,4 +1,4 @@
-export interface Collections {
+export interface ICollections {
 	_id: string;
 	image: string;
 	title: string;

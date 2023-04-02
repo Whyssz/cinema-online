@@ -1,4 +1,4 @@
-import MovieList from '@/components/screens/admin/movies/MovieList';
+import MovieList from '@/screens/admin/movies/MovieList';
 import { NextPageAuth } from '@/shared/types/auth.types';
 
 const MovieListPage: NextPageAuth = () => {

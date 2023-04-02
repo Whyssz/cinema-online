@@ -1,7 +1,7 @@
 import axios, { axiosClassic } from 'api/interceptors';
 
-import { IMovieEditInput } from '@/components/screens/admin/movies/edit/movie-edit.interface';
-import { getMoviesUrl } from '@/config/api.config';
+import { getMoviesUrl } from './../config/api.config';
+import { IMovieEditInput } from '@/screens/admin/movies/edit/movie-edit.interface';
 import { IMovie } from '@/shared/types/movie.types';
 
 export const MovieService = {
@@ -9,6 +9,20 @@ export const MovieService = {
 		return axiosClassic.get<IMovie[]>(getMoviesUrl(''), {
 			params: searchTerm ? { searchTerm } : {},
 		});
+	},
+
+	async getByGenres(genreIds: string[]) {
+		return axiosClassic.post<IMovie[]>(getMoviesUrl('/by-genres'), {
+			genreIds,
+		});
+	},
+
+	async getByActor(actorId: string) {
+		return axiosClassic.get<IMovie[]>(getMoviesUrl(`/by-actors/${actorId}`));
+	},
+
+	async getBySlug(slug: string) {
+		return axiosClassic.get<IMovie>(getMoviesUrl(`/by-slug/${slug}`));
 	},
 
 	async getMostPopularMovies() {
@@ -32,5 +46,11 @@ export const MovieService = {
 
 	async create() {
 		return axios.post<string>(getMoviesUrl('/'));
+	},
+
+	async updateCountOpened(slug: string) {
+		return axiosClassic.put<string>(getMoviesUrl('/update-count-opened'), {
+			slug,
+		});
 	},
 };

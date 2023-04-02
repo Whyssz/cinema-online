@@ -1,4 +1,4 @@
-import { MovieEdit } from '@/components/screens/admin/movies/edit/MovieEdit';
+import { MovieEdit } from '@/screens/admin/movies/edit/MovieEdit';
 import { NextPageAuth } from '@/shared/types/auth.types';
 
 const MoviesEditPage: NextPageAuth = () => {

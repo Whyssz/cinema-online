@@ -1,10 +1,9 @@
-import { IsNumber } from 'class-validator';
-import { IsObjectId } from 'class-validator-mongo-object-id';
-import { Types } from 'mongoose';
+import { IsNumber, IsString } from 'class-validator';
 
 export class SetRatingDto {
-	@IsObjectId({ message: 'MovieId is invalid!' })
-	movie: Types.ObjectId;
+	// @IsObjectId({ message: 'MovieId is invalid!' })
+	@IsString()
+	movie: string;
  
 	@IsNumber()
 	value: number;

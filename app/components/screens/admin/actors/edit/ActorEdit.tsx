@@ -4,15 +4,15 @@ import { generateSlug } from 'utils/string/generateSlug';
 
 import { IActorEditInput } from './actor-edit.interface';
 import { useActorEdit } from './useActorEdit';
-import { AdminNavigation } from '@/components/ui/admin/admin-navigation/AdminNavigation';
-import { Button } from '@/components/ui/form-element/button/Button';
-import { Field } from '@/components/ui/form-element/input/Field';
-import { SlugField } from '@/components/ui/form-element/input/SlugField';
-import { UploadField } from '@/components/ui/form-element/upload/UploadField';
-import { Heading } from '@/components/ui/heading/Heading';
-import { SkeletonLoading } from '@/components/ui/heading/SkeletonLoading';
 import { NextPageAuth } from '@/shared/types/auth.types';
+import { AdminNavigation } from '@/ui/admin/admin-navigation/AdminNavigation';
 import formStyles from '@/ui/form-element/admin-form.module.scss';
+import { Button } from '@/ui/form-element/button/Button';
+import { Field } from '@/ui/form-element/input/Field';
+import { SlugField } from '@/ui/form-element/input/SlugField';
+import { UploadField } from '@/ui/form-element/upload/UploadField';
+import { Heading } from '@/ui/heading/Heading';
+import { SkeletonLoading } from '@/ui/heading/SkeletonLoading';
 
 export const ActorEdit: NextPageAuth = () => {
 	const {
@@ -64,7 +64,7 @@ export const ActorEdit: NextPageAuth = () => {
 										onChange={onChange}
 										value={value}
 										error={error}
-										folder="/actors"
+										folder="actors"
 										placeholder="Photo"
 									/>
 								)}

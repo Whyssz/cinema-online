@@ -1,4 +1,4 @@
-import Profile from '@/components/screens/profile/Profile';
+import Profile from '@/screens/profile/Profile';
 import { NextPageAuth } from '@/shared/types/auth.types';
 
 const ProfilePage: NextPageAuth = () => {

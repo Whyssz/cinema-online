@@ -19,7 +19,7 @@ export class ActorService {
 	async getAll(searchTerm?: string) {
 		let options = {};
 
-		if (options) {
+		if (searchTerm) {
 			options = {
 				$or: [
 					{
@@ -28,13 +28,13 @@ export class ActorService {
 					{
 						slug: new RegExp(searchTerm, 'i'),
 					},
-					{
-						description: new RegExp(searchTerm, 'i'),
-					},
+					// {
+					// 	description: new RegExp(searchTerm, 'i'),
+					// },
 				],
 			};
 		}
-
+		// countMovies is always only 0
 		return this.ActorModel.aggregate()
 			.match(options)
 			.lookup({
@@ -44,11 +44,9 @@ export class ActorService {
 				as: 'movies',
 			})
 			.addFields({
-				countMovies: {
-					$size: '$movies',
-				},
+				countMovies: { $size: '$movies' },
 			})
-			.project({ updatedAt: 0, __v: 0, movies: 0 })
+			.project({ __v: 0, updatedAt: 0, movies: 0 })
 			.sort({ createdAt: -1 })
 			.exec();
 	}
