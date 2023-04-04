@@ -6,13 +6,16 @@ import styles from './Content.module.scss';
 import { ContentList } from './content-list/ContentList';
 import { MaterialIcon } from '@/components/ui/materialIcon/MaterialIcon';
 import { getActorUrl, getGenreUrl } from '@/config/url.config';
+import { useAuth } from '@/hooks/useAuth';
 import { IMovie } from '@/shared/types/movie.types';
 
 export const Content: FC<{ movie: IMovie }> = ({ movie }) => {
+	const { user } = useAuth();
+
 	return (
 		<div className={styles.content}>
 			<h1>{movie.title}</h1>
-			<FavoriteButton movieId={movie._id} />
+			{user && <FavoriteButton movieId={movie._id} />}
 
 			<div className={styles.details}>
 				<span>{movie.parameters.year} - </span>

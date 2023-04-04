@@ -8,8 +8,10 @@ import { MovieService } from '@/services/movie.service';
 import { SkeletonLoading } from '@/ui/heading/SkeletonLoading';
 
 export const PopularMovies: FC = () => {
-	const { isLoading, data: popularMovies } = useQuery(popularMovieSide, () =>
-		MovieService.getMostPopularMovies()
+	const { isLoading, data: popularMovies } = useQuery(
+		popularMovieSide,
+		() => MovieService.getMostPopularMovies(),
+		{ select: (data) => data.slice(0, 3) }
 	);
 
 	return isLoading ? (

@@ -19,7 +19,7 @@ export const Catalog: FC<ICatalog> = ({ movies, title, description }) => {
 			)}
 
 			<section className={styles.movies}>
-				{movies.map((movie) => (
+				{movies?.map((movie) => (
 					<GalleryItem
 						key={movie._id}
 						variant="horizontal"

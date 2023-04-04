@@ -5,12 +5,12 @@ import Favicons from './Favicons';
 
 export const HeadProvider: FC<React.PropsWithChildren> = ({ children }) => {
 	return (
-		<div>
+		<>
 			<Head>
 				<meta charSet="UTF-8" />
 				<meta
 					name="viewport"
-					content="width=device-width, initial-scale=1, maximum-scale=1.0"
+					content="width=device-width, initial-scale=1, maximum-scale=5.0"
 				/>
 
 				<Favicons />
@@ -21,8 +21,9 @@ export const HeadProvider: FC<React.PropsWithChildren> = ({ children }) => {
 					name="apple-mobile-web-app-status-bar-style"
 					content={'#d32f23'}
 				/>
+				<link rel="manifest" href="/manifest.json" />
 			</Head>
 			{children}
-		</div>
+		</>
 	);
 };

@@ -6,9 +6,13 @@ import styles from './Favorites.module.scss';
 import { useFavorites } from './useFavorites';
 import { Heading } from '@/components/ui/heading/Heading';
 import { SkeletonLoading } from '@/components/ui/heading/SkeletonLoading';
+import { useAuth } from '@/hooks/useAuth';
 
 export const Favorites: FC = () => {
 	const { favoriteMovies, isLoading } = useFavorites();
+	const { user } = useAuth();
+
+	if (!user) return null;
 
 	return (
 		<Meta title="Favorites">

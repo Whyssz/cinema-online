@@ -52,7 +52,8 @@ export const getStaticProps: GetStaticProps = async () => {
 				slides,
 				actors,
 				trendingMovies,
-			} as IHome,
+			} satisfies IHome,
+			revalidate: 60,
 		};
 	} catch (error) {
 		return {

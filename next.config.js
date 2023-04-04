@@ -1,7 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 	poweredByHeader: false,
-	optimizeFonts: false,
+	// optimizeFonts: false,
+	// experimental: {
+	// 	appDir: true,
+	// },
 	env: {
 		APP_URL: process.env.REACT_APP_URL,
 		APP_ENV: process.env.REACT_APP_ENV,

@@ -2,8 +2,7 @@ import cn from 'classnames';
 import { FC } from 'react';
 
 import { MaterialIcon } from '../../materialIcon/MaterialIcon';
-
-import styles from '../Slider.module.scss'
+import styles from '../Slider.module.scss';
 
 interface ISlideArrow {
 	variant: 'left' | 'right';
@@ -16,6 +15,7 @@ export const SlideArrow: FC<ISlideArrow> = ({ variant, clickHandler }) => {
 	return (
 		<button
 			onClick={clickHandler}
+			aria-label={isLeft ? 'previous slide' : 'next slide'}
 			className={cn(styles.arrow, {
 				[styles.left]: isLeft,
 				[styles.right]: !isLeft,

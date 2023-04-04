@@ -1,11 +1,11 @@
-import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { FC } from 'react';
 import { onlyText } from 'utils/string/clearText';
 
+import { ISeo } from './meta.interface';
 import logoImage from '@/assets/images/logo.svg';
 import { siteName, titleMerge } from '@/config/seo.config';
-import { ISeo } from './meta.interface';
+import Head from 'next/head';
 
 export const Meta: FC<ISeo> = ({ title, description, image, children }) => {
 	const { asPath } = useRouter();
@@ -13,10 +13,9 @@ export const Meta: FC<ISeo> = ({ title, description, image, children }) => {
 
 	return (
 		<>
-			<Head>
-				<title itemProp="headline">{titleMerge(title)}</title>
 				{description ? (
-					<>
+					<Head>
+						<title itemProp="headline">{titleMerge(title)}</title>
 						<meta
 							itemProp="description"
 							name="description"
@@ -32,11 +31,10 @@ export const Meta: FC<ISeo> = ({ title, description, image, children }) => {
 							property="og:description"
 							content={onlyText(description, 197)}
 						/>
-					</>
+					</Head>
 				) : (
 					<meta name="robots" content="noindex, nofollow" />
 				)}
-			</Head>
 			{children}
 		</>
 	);

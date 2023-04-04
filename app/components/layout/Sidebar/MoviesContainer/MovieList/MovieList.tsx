@@ -14,7 +14,7 @@ const MovieList: FC<IMovieList> = ({ link, movies, title }) => {
 				<MovieItem key={movie._id} movie={movie} />
 			))}
 			<Link href={link} className={styles.button}>
-				See more
+				{link === '/trending' ? 'All trending movies' : 'All popular movies'}
 			</Link>
 		</div>
 	);

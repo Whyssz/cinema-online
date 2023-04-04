@@ -1,0 +1,47 @@
+{
+	"theme_color": "#e30b13",
+	"background_color": "#191b1f",
+	"scope": "/",
+	"start_url": "/",
+	"name": "Online Cinema",
+	"app_name": "Online Cinema",
+	"short_name": "Online Cin`ema",
+	"description": "Watch MovieApp movies and TV shows online or stream right to your browser.",
+	"icons": [
+		{
+			"src": "/favicons/apple-touch-57x57.png",
+			"sizes": "57x57",
+			"type": "image/png"
+		},
+		{
+			"src": "/favicons/apple-touch-72x72.png",
+			"sizes": "72x72",
+			"type": "image/png"
+		},
+		{
+			"src": "/favicons/apple-touch-76x76.png",
+			"sizes": "76x76",
+			"type": "image/png"
+		},
+		{
+			"src": "/favicons/apple-touch-114x114.png",
+			"sizes": "114x114",
+			"type": "image/png"
+		},
+		{
+			"src": "/favicons/apple-touch-120x120.png",
+			"sizes": "120x120",
+			"type": "image/png"
+		},
+		{
+			"src": "/favicons/apple-touch-144x144.png",
+			"sizes": "144x144",
+			"type": "image/png"
+		},
+		{
+			"src": "/favicons/apple-touch-180x180.png",
+			"sizes": "180x180",
+			"type": "image/png"
+		}
+	]
+}
