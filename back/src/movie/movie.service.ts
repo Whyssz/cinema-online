@@ -17,7 +17,7 @@ export class MovieService {
 	async getAll(searchTerm?: string) {
 		let options = {};
 
-		if (options) {
+		if (searchTerm) {
 			options = {
 				$or: [
 					{
@@ -43,7 +43,7 @@ export class MovieService {
 	}
 
 	async byActor(actorIds: Types.ObjectId) {
-		const docs = await this.MovieModel.find({ actor: actorIds }).exec();
+		const docs = await this.MovieModel.find({ actors: actorIds }).exec();
 		if (!docs) throw new NotFoundException('Movies not found');
 		return docs;
 	}
@@ -57,7 +57,7 @@ export class MovieService {
 	}
 
 	async getMostPopular() {
-		return await this.MovieModel.find({ countOpened: { gt: 0 } })
+		return await this.MovieModel.find({ countOpened: { $gt: 0 } })
 			.sort({ countOpened: -1 })
 			.populate('genres')
 			.exec();
@@ -65,7 +65,7 @@ export class MovieService {
 
 	async updateCountOpened(slug: UpdateCountOpened) {
 		const updateDoc = await this.MovieModel.findOneAndUpdate(
-			{ slug },
+			slug,
 			{ $inc: { countOpened: 1 } },
 			{ new: true }
 		).exec();
@@ -75,18 +75,13 @@ export class MovieService {
 		return updateDoc;
 	}
 
-	async updateRating(id: Types.ObjectId, newRating: number) {
-		return this.MovieModel.findOneAndUpdate(
+	async updateRating(id: string, newRating: number) {
+		return this.MovieModel.findByIdAndUpdate(
 			id,
-			{
-				rating: newRating,
-			},
-			{
-				new: true,
-			}
+			{ rating: newRating },
+			{ new: true }
 		).exec();
 	}
-
 	// Admin place
 
 	async byId(_id: string) {

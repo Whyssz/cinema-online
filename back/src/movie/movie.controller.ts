@@ -46,13 +46,13 @@ export class MovieController {
 		return this.movieService.getAll(searchTerm);
 	}
 
-	@Get('/most-popular')
+	@Get('most-popular')
 	async getMostPopular() {
 		return this.movieService.getMostPopular();
 	}
 
 	@UsePipes(new ValidationPipe())
-	@Put('/update-count-opened')
+	@Put('update-count-opened')
 	@HttpCode(200)
 	async updateCountOpened(@Body() dto: UpdateCountOpened) {
 		return this.movieService.updateCountOpened(dto);
@@ -73,6 +73,7 @@ export class MovieController {
 		@Body() dto: UpdateMovieDto
 	) {
 		const updateMovie = await this.movieService.update(id, dto);
+
 		if (!updateMovie) throw new NotFoundException('Movie not found');
 
 		return updateMovie;
