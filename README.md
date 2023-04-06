@@ -1,34 +1,78 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Backend / Features
 
-## Getting Started
+The backend for the project is an [online movie](
+  ('https://github.com/Whyssz/cinema-online')
+).
 
-First, run the development server:
+- Authorization
+- JWT (+refresh token) / password logic
+- Storing and adding movies
 
-```bash
-npm run dev
-# or
-yarn dev
+## Entities
+
+```js
+@Module({
+  imports: [
+    TypegooseModule.forFeature([
+      {
+        typegooseClass: UserModel,
+      },
+    ]),
+    ConfigModule,
+  ],
+  providers: [UserService],
+  controllers: [UserController],
+})
+export class UserModule {}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Example request:
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```js
+@UsePipes(new ValidationPipe())
+@Put('profile')
+@HttpCode(200)
+@Auth()
+async updateProfile(@User('_id') _id: string, @Body() dto: UpdateUserDto) {
+  return this.userService.updateProfile(_id, dto);
+}
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Contributing
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+A simple build written for a movie watching [project]('https://github.com/Whyssz/cinema-online').
 
-## Learn More
+## Stack
 
-To learn more about Next.js, take a look at the following resources:
+> Node js ▪ Nest js ▪ Express js ▪ Mongoose ▪ TypeScript
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Installing
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```shell
+git clone https://github.com/Whyssz/cinema-online.git
+```
+Step next - move to the backend branch  
+```shell
+git checkout backend
+```
+And install all dependencies, in repo's root
+```shell
+yarn
+```
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+`You can use the npm`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Running
+
+Viewing url: http://localhost:4200
+
+- dev: `yarn dev`
+
+The other commands have default paths:
+
+```json
+"dev": "nest start --watch",
+"build": "nest build",
+"start": "nest start",
+```
