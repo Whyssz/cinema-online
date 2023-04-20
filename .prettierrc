@@ -7,18 +7,16 @@
 	"arrowParens": "avoid",
 	"importOrder": [
 		"<THIRD_PARTY_MODULES>",
-		"^@components/(.*)$",
-		"^@hooks/(.*)$",
-		"^@shared/(.*)$",
-		"^@services/(.*)$",
-		"^@assets/(.*)$",
-		"^@utils/(.*)$",
-		"^@config/(.*)$",
-		"^@store/(.*)$",
-		"^@ui/(.*)$",
+		"^@/components/(.*)$",
+		"^@/hooks/(.*)$",
+		"^@/shared/(.*)$",
+		"^@/services/(.*)$",
+		"^@/assets/(.*)$",
+		"^@/utils/(.*)$",
+		"^@/config/(.*)$",
+		"^@/providers/(.*)$",
 		"^../(.*)",
-		"^./(.*)",
-		"(.scss)$"
+		"^./(.*)"
 	],
 	"importOrderSeparation": true,
 	"importOrderSortSpecifiers": true
