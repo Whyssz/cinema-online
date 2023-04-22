@@ -1,4 +1,3 @@
-import Auth from '@/components/screens/auth/Auth';
 import Favorites from '@/components/screens/favorites';
 import Home from '@/components/screens/home/Home';
 import Profile from '@/components/screens/profile';
@@ -11,10 +10,6 @@ export const userRoutes: IRoute[] = [
 	{
 		name: 'Home',
 		component: Home,
-	},
-	{
-		name: 'Auth',
-		component: Auth,
 	},
 	{
 		name: 'Favorites',

@@ -1,4 +1,4 @@
-import { Field } from '@/components/ui/input';
+import { Field } from '@/components/ui/field';
 import { validEmail } from '@/shared/regexp';
 import { IAuthFormData } from '@/shared/types/auth.interface';
 import React, { FC } from 'react';
@@ -28,6 +28,7 @@ export const AuthFields: FC<IAuthFields> = ({ control, isPassRequired }) => {
 
 			<Field<IAuthFormData>
 				control={control}
+				secureTextEntry
 				name='password'
 				placeholder='Enter password'
 				rules={

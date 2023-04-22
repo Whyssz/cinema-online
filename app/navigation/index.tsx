@@ -1,5 +1,6 @@
 import { NavBottom } from '@/components/layout/bottom-nav';
 import { useAuth } from '@/hooks/useAuth';
+import { useCheckAuth } from '@/providers/auth/useCheckAuth';
 import {
 	NavigationContainer,
 	useNavigationContainerRef,
@@ -27,6 +28,8 @@ export const Navigation: FC = () => {
 			navRef.removeListener('state', listener);
 		};
 	}, []);
+
+	useCheckAuth(currentRoute);
 
 	return (
 		<>

@@ -18,7 +18,7 @@ export const navItems: INavItem[] = [
 		path: 'Favorites',
 	},
 	{
-		iconName: 'heart',
+		iconName: 'user',
 		path: 'Profile',
 	},
 ];

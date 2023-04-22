@@ -20,8 +20,7 @@
 			"adaptiveIcon": {
 				"foregroundImage": "./app/assets/adaptive-icon.png",
 				"backgroundColor": "#ffffff"
-			},
-			"requireFullScreen": true
+			}
 		},
 		"web": {
 			"favicon": "./app/assets/favicon.png"

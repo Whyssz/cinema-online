@@ -22,7 +22,6 @@ The main technologies that were used are:
     <td width='300px' height='250px' align="center" valign="middle">
         <img src="./public/img-elements/scrin-edit.jpg" alt="Project screen-shot" >
     </td>
-    
   </tr>
 </table> -->
 
@@ -45,7 +44,8 @@ Programs to install and configure:
 - [Debugger](https://github.com/facebook/react/tree/main/packages/react-devtools)
 
 
-## Running
+## Start
 
+1. Run [backend](https://github.com/Whyssz/cinema-online/tree/backend) - `branch backend`
 1. Run phone emulator
 2. Run project `yarn android:dev`
