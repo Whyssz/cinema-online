@@ -1,4 +1,4 @@
-import { Toast } from '@/components/ui/toast';
+import { Toast } from '@/components/ui/toast/Toast';
 import { Navigation } from '@/navigation';
 import { AuthProvider } from '@/providers/auth/AuthProvider';
 import { Query } from '@/providers/query-client';

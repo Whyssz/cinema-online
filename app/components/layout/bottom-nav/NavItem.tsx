@@ -1,4 +1,4 @@
-import { getColor } from '@/util/config';
+import { getColor } from '@/utils/config';
 import { Feather } from '@expo/vector-icons';
 import { FC } from 'react';
 import { Pressable } from 'react-native';

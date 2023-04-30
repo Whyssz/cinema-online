@@ -1,4 +1,4 @@
-import { constAuth } from '@/config/query.config';
+import { queryAuth } from '@/config/query.config';
 import { useAuth } from '@/hooks/useAuth';
 import { AuthService } from '@/service/auth/auth.service';
 import { IAuthFormData } from '@/shared/types/auth.interface';
@@ -10,7 +10,7 @@ export const useAuthMutations = (reset: UseFormReset<IAuthFormData>) => {
 	const { setUser } = useAuth();
 
 	const { mutate: loginSync, isLoading: isLoginLoading } = useMutation(
-		[constAuth.login],
+		[queryAuth.login],
 		({ email, password }: IAuthFormData) =>
 			AuthService.main('login', email, password),
 		{
@@ -24,7 +24,7 @@ export const useAuthMutations = (reset: UseFormReset<IAuthFormData>) => {
 	);
 
 	const { mutate: registerSync, isLoading: isRegisterLoading } = useMutation(
-		[constAuth.register],
+		[queryAuth.register],
 		({ email, password }: IAuthFormData) =>
 			AuthService.main('reg', email, password),
 		{

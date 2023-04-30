@@ -1,4 +1,4 @@
-import { Field } from '@/components/ui/field';
+import { Field } from '@/components/ui/field/Field';
 import { validEmail } from '@/shared/regexp';
 import { IAuthFormData } from '@/shared/types/auth.interface';
 import React, { FC } from 'react';

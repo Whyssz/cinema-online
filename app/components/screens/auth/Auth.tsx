@@ -1,9 +1,8 @@
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/buttons/button/Button';
 import { DismissKeyboard } from '@/components/ui/field/DismissKeyboard';
-import { Loader } from '@/components/ui/loader';
-import { useAuth } from '@/hooks/useAuth';
+import { Loader } from '@/components/ui/loader/Loader';
 import { IAuthFormData } from '@/shared/types/auth.interface';
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { SubmitHandler } from 'react-hook-form/dist/types';
 import { Pressable, Text, View } from 'react-native';
@@ -25,8 +24,6 @@ const Auth: FC = () => {
 			loginSync(data);
 		}
 	};
-
-
 
 	return (
 		<DismissKeyboard>

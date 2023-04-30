@@ -13,6 +13,7 @@ module.exports = function (api) {
 			],
 			['nativewind/babel'],
 			['inline-dotenv'],
+			['react-native-reanimated/plugin'],
 		],
 	};
 };

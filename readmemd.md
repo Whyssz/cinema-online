@@ -1,5 +1,5 @@
 ## Brief 
-This is the mobile version of the project with a redesign and its own features.
+This is a mobile version of the project with a redesign, which has it's own characteristics.
 
 ## Stack
 The main technologies that were used are:
